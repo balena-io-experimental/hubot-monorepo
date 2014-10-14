@@ -1,7 +1,8 @@
 {
   "name": "hubot-rememberto",
   "description": "Remember to someone something...",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "main": "./src/scripts/rememberto.coffee",
   "devDependencies": {
     "hubot": "^2.8.2",
     "hubot-scripts": "^2.5.16"
