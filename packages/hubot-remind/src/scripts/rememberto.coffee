@@ -50,8 +50,11 @@ module.exports = (robot) ->
     time = msg.match[3]
     something = msg.match[4]
 
-    if name == /me/i then name = msg.user.username
-    users = robot.brain.usersForFuzzyName(name)
+    if /^me$/i.test(name.trim())
+      users = [msg.message.user]
+    else
+      users = robot.brain.usersForFuzzyName(name)
+
     if users.length is 1
       switch time
         when 's' then handleNewJob robot, msg, users[0], moment().add(at, "second").toDate(), something
@@ -59,7 +62,8 @@ module.exports = (robot) ->
         when 'h' then handleNewJob robot, msg, users[0], moment().add(at, "hour").toDate(), something
         when 'd' then handleNewJob robot, msg, users[0], moment().add(at, "day").toDate(), something
     else if users.length > 1
-      msg.send "Be more specific, I know #{users.length} people named like that: #{(user.name for user in users).join(", ")}"
+      msg.send "Be more specific, I know #{users.length} people " +
+        "named like that: #{(user.name for user in users).join(", ")}"
     else
       msg.send "#{name}? Never heard of 'em"
 
