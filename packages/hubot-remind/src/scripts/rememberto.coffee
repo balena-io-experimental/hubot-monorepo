@@ -94,5 +94,10 @@ class Job
 
   sendMessage: (robot) ->
     envelope = user: @user, room: @user.room
-    robot.send envelope, "Hey @#{envelope.user.name} remember: " + @message
+    message = @message
+    if @user.mention_name
+      message = "Hey @#{envelope.user.mention_name} remember: " + @message
+    else
+      message = "Hey @#{envelope.user.name} remember: " + @message
+    robot.send envelope, message
 
