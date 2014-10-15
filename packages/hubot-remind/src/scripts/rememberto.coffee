@@ -2,7 +2,10 @@
 #   Remember to someone something
 #
 # Commands:
-#   hubot remember to <user> in <time> <something> - Remember to someone something in a given time eg 5m
+#   hubot remember to <user> in <val with unit> <something to remember> - Remember to someone something in a given time eg 5m for five minutes
+#   hubot what do you remember? - Show active jobs
+#   hubot forget job <id> - Remove a given job
+#   hubot rm job <id> - Remove a given job
 
 cronJob = require('cron').CronJob
 moment = require('moment')
@@ -43,6 +46,26 @@ module.exports = (robot) ->
     for own id, job of robot.brain.data.things
       console.log id
       registerNewJobFromBrain robot, id, job...
+
+  robot.respond /what do you remember/i, (msg) ->
+    text = ''
+    for id, job of JOBS
+      room = job.user.reply_to || job.user.room
+      if room == msg.message.user.reply_to or room == msg.message.user.room
+        text += "#{id}: #{job.pattern} @#{room} \"#{job.message}\"\n"
+    if text.length > 0
+      msg.send text
+    else
+      msg.send "Nothing to remember, isn't it?"
+
+  robot.respond /(forget|rm|remove) job (\d+)/i, (msg) ->
+    reqId = msg.match[2]
+    for id, job of JOBS
+      if (reqId == id)
+        if unregisterJob(robot, reqId)
+          msg.send "Job #{id} sleep with the fishes..."
+        else
+          msg.send "i can't forget it, maybe i need a headshrinker"
 
   robot.respond /remember to (.*) in (\d+)([s|m|h|d]) to (.*)/i, (msg) ->
     name = msg.match[1]
