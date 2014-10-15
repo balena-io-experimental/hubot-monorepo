@@ -23,3 +23,15 @@ You can use
  * `h` -> hours
  * `d` -> days
 
+You can check existing jobs
+
+```
+hubot what do you remember?
+```
+
+And drop things out
+
+```
+hubot forget <job id>
+```
+
