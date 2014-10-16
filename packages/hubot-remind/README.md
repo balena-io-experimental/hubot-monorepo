@@ -13,7 +13,7 @@ npm install hubot-rememberto --save
 ## How to use it
 
 ```
-hubot remember to me in 1h to send an email to someone...
+hubot remember to <user or me> in <time with unit> to <message to remember>
 ```
 
 You can use
