@@ -67,7 +67,7 @@ module.exports = (robot) ->
         else
           msg.send "i can't forget it, maybe i need a headshrinker"
 
-  robot.respond /remember to (.*) in (\d+)([s|m|h|d]) to (.*)/i, (msg) ->
+  robot.respond /remind (.*) in (\d+)([s|m|h|d]) to (.*)/i, (msg) ->
     name = msg.match[1]
     at = msg.match[2]
     time = msg.match[3]
