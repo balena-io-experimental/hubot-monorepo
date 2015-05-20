@@ -80,10 +80,12 @@ module.exports = (robot) ->
 
     if users.length is 1
       switch time
-        when 's' then handleNewJob robot, msg, users[0], moment().add(at, "second").toDate(), something
-        when 'm' then handleNewJob robot, msg, users[0], moment().add(at, "minute").toDate(), something
-        when 'h' then handleNewJob robot, msg, users[0], moment().add(at, "hour").toDate(), something
-        when 'd' then handleNewJob robot, msg, users[0], moment().add(at, "day").toDate(), something
+        when 's' then timeWord = 'second'
+        when 'm' then timeWord = 'minute'
+        when 'h' then timeWord = 'hour'
+        when 'd' then timeWord = 'day'
+
+      handleNewJob robot, msg, users[0], moment().add(at, timeWord).toDate(), something
     else if users.length > 1
       msg.send "Be more specific, I know #{users.length} people " +
         "named like that: #{(user.name for user in users).join(", ")}"
