@@ -1,11 +1,10 @@
 {
-  "name": "hubot-rememberto",
-  "description": "Remember to someone something...",
+  "name": "hubot-remind",
+  "description": "Remind to someone something...",
   "version": "0.0.10",
-  "main": "./src/scripts/rememberto.coffee",
+  "main": "./src/scripts/remind.coffee",
   "devDependencies": {
-    "hubot": "^2.8.2",
-    "hubot-scripts": "^2.5.16"
+    "hubot": "^2.8.2"
   },
   "dependencies": {
     "cron": "^1.0.5",
@@ -13,6 +12,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wdalmut/hubot-rememberto.git"
+    "url": "https://github.com/clippings/hubot-remind.git"
   }
 }

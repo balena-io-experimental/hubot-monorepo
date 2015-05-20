@@ -1,11 +1,11 @@
 # Description:
-#   Remember to someone something
+#   remind to someone something
 #
 # Commands:
-#   hubot remember to <user> in <val with unit> <something to remember> - Remember to someone something in a given time eg 5m for five minutes
-#   hubot what do you remember? - Show active jobs
-#   hubot forget job <id> - Remove a given job
-#   hubot rm job <id> - Remove a given job
+#   hubot remind to <user> in #s|m|h|d to <something to remind> - remind to someone something in a given time eg 5m for five minutes
+#   hubot what will you remind - Show active reminders
+#   hubot what are your reminders - Show active reminders
+#   hubot forget|rm reminder <id> - Remove a given job
 
 cronJob = require('cron').CronJob
 moment = require('moment')
@@ -36,7 +36,7 @@ unregisterJob = (robot, id)->
 
 handleNewJob = (robot, msg, user, pattern, message) ->
     id = createNewJob robot, pattern, user, message
-    msg.send "Got it! I will remember to #{user.name} at #{pattern}"
+    msg.send "Got it! I will remind to #{user.name} at #{pattern}"
 
 module.exports = (robot) ->
   robot.brain.data.things or= {}
@@ -47,23 +47,23 @@ module.exports = (robot) ->
       console.log id
       registerNewJobFromBrain robot, id, job...
 
-  robot.respond /what do you remember/i, (msg) ->
+  robot.respond /what (will you remind|are your reminders)/i, (msg) ->
     text = ''
     for id, job of JOBS
       room = job.user.reply_to || job.user.room
       if room == msg.message.user.reply_to or room == msg.message.user.room
-        text += "#{id}: #{job.pattern} @#{room} \"#{job.message}\"\n"
+        text += "#{id}: @#{room} to \"#{job.message} at #{job.pattern}\"\n"
     if text.length > 0
       msg.send text
     else
-      msg.send "Nothing to remember, isn't it?"
+      msg.send "Nothing to remind, isn't it?"
 
-  robot.respond /(forget|rm|remove) job (\d+)/i, (msg) ->
+  robot.respond /(forget|rm|remove) reminder (\d+)/i, (msg) ->
     reqId = msg.match[2]
     for id, job of JOBS
       if (reqId == id)
         if unregisterJob(robot, reqId)
-          msg.send "Job #{id} sleep with the fishes..."
+          msg.send "Reminder #{id} sleep with the fishes..."
         else
           msg.send "i can't forget it, maybe i need a headshrinker"
 
