@@ -2,7 +2,7 @@
   "name": "hubot-remind",
   "description": "Remind to someone something...",
   "version": "0.1.1",
-  "main": "./src/scripts/remind.coffee",
+  "main": "./src/index.coffee",
   "devDependencies": {
     "hubot": "^2.8.2"
   },
