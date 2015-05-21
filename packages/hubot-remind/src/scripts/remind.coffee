@@ -76,6 +76,7 @@ module.exports = (robot) ->
     if /^me$/i.test(name.trim())
       users = [msg.message.user]
     else
+      name = name.replace 'to ', ''
       users = robot.brain.usersForFuzzyName(name)
 
     if users.length is 1
