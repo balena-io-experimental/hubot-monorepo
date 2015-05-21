@@ -1,11 +1,11 @@
 # Description:
-#   remind to someone something
+#   Remind to someone something
 #
 # Commands:
 #   hubot remind to <user> in #s|m|h|d to <something to remind> - remind to someone something in a given time eg 5m for five minutes
 #   hubot what will you remind - Show active reminders
 #   hubot what are your reminders - Show active reminders
-#   hubot forget|rm reminder <id> - Remove a given job
+#   hubot forget|rm reminder <id> - Remove a given reminder
 
 cronJob = require('cron').CronJob
 moment = require('moment')
