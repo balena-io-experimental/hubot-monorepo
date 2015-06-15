@@ -37,4 +37,8 @@ hubot forget <reminder id>
 
 ---
 
+For more information and details, [take a look at the source](src/scripts/remind.coffee]).
+
+---
+
 This is a GitHub fork from the original [Hubot RememberTo](https://github.com/wdalmut/hubot-rememberto) by [@wdalmut](https://github.com/wdalmut).
