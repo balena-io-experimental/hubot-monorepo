@@ -3,17 +3,22 @@
 #
 # Author:
 #   Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
+#noinspection JSUnresolvedVariable
+module.exports = (robot) ->
 
-previous = []
+	previous = []
 
-#noinspection CoffeeScriptUnusedLocalSymbols
-robot.responseMiddleware (context, next, done) ->
-	previous = context.strings
-	next()
-
-robot.receiveMiddleware (context, next, done) ->
-	if previous.includes context.response.message.text
-		previous = []
-		done()
-	else
+	#noinspection CoffeeScriptUnusedLocalSymbols
+	robot.responseMiddleware (context, next, done) ->
+		# Record the output that is heading toward the client
+		previous = context.strings
 		next()
+
+	robot.receiveMiddleware (context, next, done) ->
+		# If the input from the client is what we've just output
+		if previous.includes context.response.message.text
+			# ignore it once by resetting the previous
+			previous = []
+			done()
+		else
+			next()
