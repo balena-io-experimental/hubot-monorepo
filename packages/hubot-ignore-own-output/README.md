@@ -21,8 +21,6 @@ Then add **hubot-ignore-self** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
 ```
 
 ## NPM Module

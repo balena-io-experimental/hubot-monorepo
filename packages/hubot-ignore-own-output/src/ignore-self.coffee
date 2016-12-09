@@ -1,22 +1,19 @@
-# Description
-#   A hubot script that prevents a hubot from acting on it's own output
-#
-# Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
-#
-# Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
-#
-# Notes:
-#   <optional notes required for the script>
+# Description:
+#   A hubot script to help a hubot ignore it's own output
 #
 # Author:
-#   Andrew Lucas <andrewl@resin.io>
+#   Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
 
-module.exports = (robot) ->
-  robot.respond /hello/, (res) ->
-    res.reply "hello!"
+previous = []
 
-  robot.hear /orly/, (res) ->
-    res.send "yarly"
+#noinspection CoffeeScriptUnusedLocalSymbols
+robot.responseMiddleware (context, next, done) ->
+	previous = context.strings
+	next()
+
+robot.receiveMiddleware (context, next, done) ->
+	if previous.includes context.response.message.text
+		previous = []
+		done()
+	else
+		next()
