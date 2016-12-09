@@ -1,28 +1,21 @@
 {
   "name": "hubot-ignore-self",
   "description": "A hubot script that prevents a hubot from acting on it's own output",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Andrew Lucas <andrewl@resin.io>",
   "license": "Apache-2.0",
-
   "keywords": "hubot, hubot-scripts",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/resin-io/hubot-ignore-self.git"
   },
-
   "bugs": {
     "url": "https://github.com/resin-io/hubot-ignore-self/issues"
   },
-
-  "dependencies": {
-  },
-
+  "dependencies": {},
   "peerDependencies": {
     "hubot": "2.x"
   },
-
   "devDependencies": {
     "hubot-test-helper": "^1.3.0",
     "chai": "^2.1.1",
@@ -39,9 +32,7 @@
     "sinon": "^1.13.0",
     "sinon-chai": "^2.7.0"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
   }
