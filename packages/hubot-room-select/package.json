@@ -7,10 +7,10 @@
   "keywords": "hubot, hubot-scripts",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-room-select.git"
+    "url": "git://github.com/resin-io/hubot-room-select.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-room-select/issues"
+    "url": "https://github.com/resin-io/hubot-room-select/issues"
   },
   "dependencies": {},
   "peerDependencies": {
