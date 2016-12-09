@@ -19,30 +19,30 @@ module.exports = (robot) ->
 
 	robot.receiveMiddleware (context, next, done) ->
 		roomSet = (text, room) ->
-# The monitor may be set to follow just the bot-wrangler
+			# The monitor may be set to follow just the bot-wrangler
 			if text.match /\b(on)\b/
 				rooms[room] = 'on'
-# The monitor may be set to follow everyone
+			# The monitor may be set to follow everyone
 			else if text.match /\b(all)\b/
 				rooms[room] = 'all'
-# The monitor may be set to off
+			# The monitor may be set to off
 			else if text.match /\b(off)\b/
 				delete rooms[room]
 
 		roomFilter = (context, next, done) ->
-# If we've instructions to monitor this room
+			# If we've instructions to monitor this room
 			if Object.keys(rooms).includes context.response.message.room
-# If the monitor is set to me and the post is from me, then continue
+				# If the monitor is set to me and the post is from me, then continue
 				if rooms[context.response.message.room] is 'on' \
-					and context.response.message.user.name is context.response.robot.name
+				   and context.response.message.user.name is context.response.robot.name
 					next()
-# If the monitor is set to everyone then continue
+				# If the monitor is set to everyone then continue
 				else if rooms[context.response.message.room] is 'all'
 					next()
-# If the conditions don't match a situation in which we should continue
+				# If the conditions don't match a situation in which we should continue
 				else
 					done()
-# If we've no instructions to monitor this room
+			# If we've no instructions to monitor this room
 			else
 				done()
 
@@ -52,6 +52,6 @@ module.exports = (robot) ->
 			and message_text.match /^(monitor)\b/
 			roomSet(message_text, context.response.message.room)
 			done()
-# If we're not changing monitor settings, then we're filtering based on them
+		# If we're not changing monitor settings, then we're filtering based on them
 		else
 			roomFilter(context, next, done)
