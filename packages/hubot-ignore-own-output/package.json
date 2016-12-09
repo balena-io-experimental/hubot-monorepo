@@ -1,7 +1,7 @@
 {
   "name": "hubot-ignore-self",
   "description": "A hubot script that prevents a hubot from acting on it's own output",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "author": "Andrew Lucas <andrewl@resin.io>",
   "license": "Apache-2.0",
 
