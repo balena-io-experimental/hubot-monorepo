@@ -17,6 +17,7 @@
   },
 
   "dependencies": {
+    "request": "^2.x"
   },
 
   "peerDependencies": {
@@ -35,6 +36,7 @@
     "hubot": "2.x",
     "matchdep": "~0.3.0",
     "mocha": "^2.1.0",
+    "resin-lint": "^1.4.0",
     "sinon": "^1.13.0",
     "sinon-chai": "^2.7.0"
   },
