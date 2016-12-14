@@ -5,6 +5,7 @@
 #   monitor off - stop monitoring this room
 #   monitor me - monitor the wrangler's input to this room
 #   monitor all - monitor everyone's input to this room
+#   monitor log - output to the bot's command line the id of the room
 #
 # Notes:
 #   This is deliberately not implemented as a receiveMiddleware & listener pairing.
@@ -13,9 +14,11 @@
 # Author:
 # Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
 
-module.exports = (robot) ->
+rooms = {}
+if process.env.HUBOT_MONITOR_ROOM?
+	rooms[process.env.HUBOT_MONITOR_ROOM] = 'me'
 
-	rooms = {}
+module.exports = (robot) ->
 
 	robot.receiveMiddleware (context, next, done) ->
 		roomSet = (text, room) ->
@@ -28,6 +31,9 @@ module.exports = (robot) ->
 			# The monitor may be set to off
 			else if text.match /\b(off)\b/
 				delete rooms[room]
+			# The monitor may output the room id
+			else if text.match /\b(log)\b/
+				robot.logger.info room
 
 		roomFilter = (context, next, done) ->
 			# If we've instructions to monitor this room
