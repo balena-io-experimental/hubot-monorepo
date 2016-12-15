@@ -2,19 +2,19 @@
 
 A hubot script that prevents a hubot from acting on it's own output
 
-See [`src/ignore-self.coffee`](src/ignore-self.coffee) for full documentation.
+See [`src/ignore-own-output.coffee`](src/ignore-own-output.coffee) for full documentation.
 
 ## Installation
 
 In hubot project repo, run:
 
-`npm install hubot-ignore-self --save`
+`npm install hubot-ignore-own-output --save`
 
-Then add **hubot-ignore-self** to your `external-scripts.json`:
+Then add **hubot-ignore-own-output** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-ignore-self"
+  "hubot-ignore-own-output"
 ]
 ```
 
@@ -25,4 +25,4 @@ Then add **hubot-ignore-self** to your `external-scripts.json`:
 
 ## NPM Module
 
-https://www.npmjs.com/package/hubot-ignore-self
+https://www.npmjs.com/package/hubot-ignore-own-output

@@ -3,7 +3,7 @@ chai = require 'chai'
 
 expect = chai.expect
 
-helper = new Helper('../src/ignore-self.coffee')
+helper = new Helper('../src/ignore-own-output.coffee')
 
 describe 'ignore-self', ->
   beforeEach ->
