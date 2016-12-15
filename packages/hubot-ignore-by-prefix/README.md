@@ -2,7 +2,7 @@
 
 A hubot script that selectively ignores indicated messages
 
-See [`src/ignore.coffee`](src/ignore.coffee) for full documentation.
+See [`src/ignore-by-prefix.coffee`](src/ignore-by-prefix.coffee) for full documentation.
 
 ## Installation
 
