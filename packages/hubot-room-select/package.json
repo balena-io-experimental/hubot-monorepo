@@ -1,7 +1,7 @@
 {
   "name": "hubot-room-select",
   "description": "A hubot script that allows for in-app configuration of room monitoring",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Andrew Lucas <andrewl@resin.io>",
   "license": "Apache-2.0",
   "keywords": "hubot, hubot-scripts",
