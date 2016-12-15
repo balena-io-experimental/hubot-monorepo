@@ -1,7 +1,7 @@
 {
   "name": "hubot-gitter-echo",
   "description": "A hubot script that echos all output to a gitter room",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Andrew Lucas <andrewl@resin.io>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts",
