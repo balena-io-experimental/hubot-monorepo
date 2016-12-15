@@ -8,23 +8,30 @@ See [`src/ignore.coffee`](src/ignore.coffee) for full documentation.
 
 In hubot project repo, run:
 
-`npm install hubot-ignore --save`
+`npm install hubot-ignore-by-prefix --save`
 
-Then add **hubot-ignore** to your `external-scripts.json`:
+Then add **hubot-ignore-by-prefix** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-ignore"
+  "hubot-ignore-by-prefix"
 ]
+```
+
+## Environment variables
+
+```
+HUBOT_IGNORE_PREFIX
 ```
 
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> badger
+hubot>> We don't need no stinking badgers!
+user1>> :badger
 ```
 
 ## NPM Module
 
-https://www.npmjs.com/package/hubot-ignore
+https://www.npmjs.com/package/hubot-ignore-by-prefix
