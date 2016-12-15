@@ -18,6 +18,13 @@ Then add **hubot-gitter-echo** to your `external-scripts.json`:
 ]
 ```
 
+## Environment Variables
+
+```
+HUBOT_GITTER_ROOM
+HUBOT_GITTER_API_TOKEN
+```
+
 ## Sample Interaction
 
 ```
