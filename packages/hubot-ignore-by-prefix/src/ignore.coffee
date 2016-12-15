@@ -15,8 +15,10 @@
 #   Andrew Lucas <andrewl@resin.io>
 
 module.exports = (robot) ->
-  robot.respond /hello/, (res) ->
-    res.reply "hello!"
 
-  robot.hear /orly/, (res) ->
-    res.send "yarly"
+	robot.receiveMiddleware (context, next, done) ->
+		if process.env.HUBOT_IGNORE_PREFIX? \
+		   and context.response.message.text.slice(0, process.env.HUBOT_IGNORE_PREFIX.length) is process.env.HUBOT_IGNORE_PREFIX
+			done()
+		else
+			next()
