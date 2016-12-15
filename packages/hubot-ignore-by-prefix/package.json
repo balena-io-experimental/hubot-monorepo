@@ -1,7 +1,7 @@
 {
   "name": "hubot-ignore-by-prefix",
   "description": "A hubot script that selectively ignores indicated messages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Andrew Lucas <andrewl@resin.io>",
   "license": "Apache-2.0",
   "keywords": [
