@@ -78,6 +78,12 @@ Optional configuration:
     # You can ignore users (for example if you have other bots) with the following
     # environment variable by giving a comma separated list of user ids.
     HUBOT_FLOWDOCK_IGNORED_USERS=123,456,789
+    
+    # You can configure hubot to act upon it's own identity. This is useful when
+    # creating a semi-manual bot or using hubot to replicate your presence in one
+    # service across several.
+    # **Proceed with caution, this could create infinite loops**
+    HUBOT_FLOWDOCK_LISTEN_TO_SELF=1
 
 ### Name
 

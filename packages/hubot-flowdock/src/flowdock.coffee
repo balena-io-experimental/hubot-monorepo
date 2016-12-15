@@ -112,7 +112,7 @@ class Flowdock extends Adapter
       if @needsReconnect(message)
         @reconnect('Reloading flow list')
       return unless message.event in ['message', 'comment']
-      return if @myId(message.user)
+      return if @myId(message.user) and process.env.HUBOT_FLOWDOCK_LISTEN_TO_SELF != '1'
       return if String(message.user) in @ignores
 
       @robot.logger.debug 'Received message', message
