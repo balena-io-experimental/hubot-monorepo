@@ -18,12 +18,19 @@ Then add **hubot-room-select** to your `external-scripts.json`:
 ]
 ```
 
+## Environment Variables
+
+```
+HUBOT_MONITOR_ROOM
+```
+
 ## Sample Interaction
 
 ```
 monitor on
 monitor all
 monitor off
+monitor log
 ```
 
 ## NPM Module
