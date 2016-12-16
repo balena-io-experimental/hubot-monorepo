@@ -18,7 +18,7 @@ module.exports = (robot) ->
 		# If the input from the client is what we've just output
 		if previous.includes context.response.message.text
 			# ignore it once by resetting the previous
-			previous = []
+			previous.splice(previous.indexOf(context.response.message.text), 1)
 			done()
 		else
 			next()
