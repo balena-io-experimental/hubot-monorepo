@@ -52,10 +52,11 @@ module.exports = (robot) ->
 			else
 				done()
 
-		# The bot-wrangler may change the monitor settings of the robot
+		# The bot-wrangler may change the monitor settings of the robot if not environment variable
 		message_text = context.response.message.text or context.response.message.message.text
 		if context.response.message.user.name is context.response.robot.name \
-		   and message_text.match /^(monitor)\b/
+		   and message_text.match /^(monitor)\b/ \
+		   and not process.env.HUBOT_MONITOR_ROOM?
 			roomSet(message_text, context.response.message.room)
 			done()
 		# If we're not changing monitor settings, then we're filtering based on them
