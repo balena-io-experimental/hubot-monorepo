@@ -12,6 +12,21 @@ moment = require('moment')
 
 JOBS = {}
 
+timeWords = {
+  's': 'second'
+  'second': 'second'
+  'seconds': 'second'
+  'm': 'minute'
+  'minute': 'minute'
+  'minutes': 'minute'
+  'h': 'hour'
+  'hour': 'hour'
+  'hours': 'hour'
+  'd': 'day'
+  'day': 'day'
+  'days': 'day'
+}
+
 createNewJob = (robot, pattern, user, message) ->
   id = Math.floor(Math.random() * 1000000) while !id? || JOBS[id]
   job = registerNewJob robot, id, pattern, user, message
@@ -67,7 +82,7 @@ module.exports = (robot) ->
         else
           msg.send "i can't forget it, maybe i need a headshrinker"
 
-  robot.respond /remind (.*) in (\d+)([s|m|h|d]) to (.*)/i, (msg) ->
+  robot.respond new RegExp('/remind (.*) in (\d+) ?([' + Object.keys(timeWords).join('|') + ']) to (.*)/i'), (msg) ->
     name = msg.match[1]
     at = msg.match[2]
     time = msg.match[3]
@@ -80,11 +95,7 @@ module.exports = (robot) ->
       users = robot.brain.usersForFuzzyName(name)
 
     if users.length is 1
-      switch time
-        when 's' then timeWord = 'second'
-        when 'm' then timeWord = 'minute'
-        when 'h' then timeWord = 'hour'
-        when 'd' then timeWord = 'day'
+      timeWord = timeWords[time]
 
       handleNewJob robot, msg, users[0], moment().add(at, timeWord).toDate(), something
     else if users.length > 1
