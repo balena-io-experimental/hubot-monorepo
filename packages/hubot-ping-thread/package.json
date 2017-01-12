@@ -1,0 +1,31 @@
+{
+  "name": "hubot-ping-thread",
+  "version": "0.0.1",
+  "description": "A hubot script to ping a thread when requested",
+  "main": "src/ping-thread.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io/hubot-ping-thread.git"
+  },
+  "keywords": [
+    "hubot",
+    "script",
+    "ping",
+    "thread"
+  ],
+  "author": "sqweelygig (andrewl@resin.io)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io/hubot-ping-thread/issues"
+  },
+  "homepage": "https://github.com/resin-io/hubot-ping-thread#readme",
+  "devDependencies": {
+    "resin-lint": "^1.4.0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.12.2"
+  }
+}

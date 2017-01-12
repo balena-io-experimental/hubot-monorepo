@@ -1,0 +1,7 @@
+node_modules
+.DS_Store*
+*.swo
+*.swp
+.hubot_history
+.project
+npm-debug.log
