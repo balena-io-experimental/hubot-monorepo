@@ -204,20 +204,32 @@ class Flowdock extends Adapter
 
       @connect()
 
-  fetchThreadParticipants: (envelope, callback) ->
+  fetchThreadPinged: (envelope, callback) ->
     @bot.get '/flows/find', { id: envelope.message.room }, (err, obj, res) =>
       endpoint = obj.url.split('/').splice(3)
       endpoint.push 'threads'
       endpoint.push envelope.message.metadata.thread_id
       endpoint.push 'messages'
       @bot.get '/' + endpoint.join('/'), {}, (err, obj, res) =>
-        participants = {}
+        people = {}
         for comment in obj
-          participants['@' + @userFromId(comment.user).name] = true
-          for participant in comment.content.match(/@(\w*)/gi) ? []
-            participants[participant] = true
-        participants = Object.keys(participants)
-        callback participants
+          for person in comment.content.match(/@(\w*)/gi) ? []
+            people[person] = true
+        people = Object.keys(people)
+        callback people
+
+  fetchThreadCommenters: (envelope, callback) ->
+    @bot.get '/flows/find', { id: envelope.message.room }, (err, obj, res) =>
+      endpoint = obj.url.split('/').splice(3)
+      endpoint.push 'threads'
+      endpoint.push envelope.message.metadata.thread_id
+      endpoint.push 'messages'
+      @bot.get '/' + endpoint.join('/'), {}, (err, obj, res) =>
+        people = {}
+        for comment in obj
+          people['@' + @userFromId(comment.user).name] = true
+        people = Object.keys(people)
+        callback people
 
 exports.use = (robot) ->
   new Flowdock robot
