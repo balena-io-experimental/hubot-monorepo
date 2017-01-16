@@ -1,0 +1,32 @@
+{
+  "name": "hubot-dump",
+  "version": "0.0.1",
+  "description": "A simple hubot script to output all messages to the console",
+  "main": "src/dump.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-modules/hubot-dump.git"
+  },
+  "keywords": [
+    "hubot",
+    "script",
+    "debug",
+    "dump"
+  ],
+  "author": "Andrew Lucas (andrewl@resin.io)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-modules/hubot-dump/issues"
+  },
+  "homepage": "https://github.com/resin-io-modules/hubot-dump#readme",
+  "dependencies": {
+    "coffee-script": "^1.12.2",
+    "parent-require": "^1.0.0"
+  },
+  "devDependencies": {
+    "resin-lint": "^1.4.0"
+  }
+}
