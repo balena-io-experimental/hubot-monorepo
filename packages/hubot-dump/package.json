@@ -24,7 +24,7 @@
   "homepage": "https://github.com/resin-io-modules/hubot-dump#readme",
   "dependencies": {
     "coffee-script": "^1.12.2",
-    "parent-require": "^1.0.0",
+    "parent-require": "^1.0.0"
   },
   "devDependencies": {
     "resin-lint": "^1.4.0"
