@@ -2,6 +2,7 @@ fs = require 'fs'
 path = require 'path'
 console.log 'abc'
 module.exports = (robot, scripts) ->
+	robot.logger.info 'def'
 	scriptsPath = path.resolve(__dirname, 'src')
 	fs.exists scriptsPath, (exists) ->
 		if exists
