@@ -2,7 +2,7 @@
   "name": "hubot-dump",
   "version": "0.0.1",
   "description": "A simple hubot script to output all messages to the console",
-  "main": "src/dump.coffee",
+  "main": "./src/dump.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
