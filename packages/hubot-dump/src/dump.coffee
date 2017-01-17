@@ -1,3 +1,5 @@
+console.log 'dump loaded'
+
 module.exports = (robot) ->
 	robot.hear /.*/i, (context) ->
 		console.log 'here'
