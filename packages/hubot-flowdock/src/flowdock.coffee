@@ -213,7 +213,7 @@ class Flowdock extends Adapter
         for person in comment.content.match(/@(\w*)/gi) ? []
           people.add person
       # Put the set of people to the callback
-      callback [...people]
+      callback Array.from(people)
 
   # Pass to the callback function everyone who has contributed to a conversation
   fetchThreadCommenters: (envelope, callback) ->
@@ -223,7 +223,7 @@ class Flowdock extends Adapter
       for comment in obj
         people.add comment.user
       # Put the set of people to the callback
-      callback [...people].map(value => '@' + @userFromId(value).name)
+      callback Array.from(people).map(value => '@' + @userFromId(value).name)
 
   # Pass to the callback function every message in a thread
   fetchThreadMessages: (envelope, callback) ->
