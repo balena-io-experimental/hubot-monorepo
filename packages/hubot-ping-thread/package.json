@@ -1,6 +1,6 @@
 {
   "name": "hubot-ping-thread",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A hubot script to ping a thread when requested",
   "main": "src/ping-thread.coffee",
   "scripts": {
