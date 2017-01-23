@@ -1,6 +1,6 @@
 {
   "name": "hubot-dump",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple hubot script to output all messages to the console",
   "main": "index.coffee",
   "scripts": {
