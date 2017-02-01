@@ -1,6 +1,6 @@
-# hubot-base-script
+# hubot-repeat-prevent
 
-A hubot script that does nothing except provide a framework
+A hubot script
 
 ## Installation
 
@@ -10,4 +10,4 @@ A hubot script that does nothing except provide a framework
 
 ## NPM Module
 
-https://www.npmjs.com/package/hubot-base-script
+https://www.npmjs.com/package/hubot-repeat-prevent
