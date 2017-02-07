@@ -1,0 +1,22 @@
+{
+  "name": "hubot-utility",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-modules/hubot-utility.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-modules/hubot-utility/issues"
+  },
+  "homepage": "https://github.com/resin-io-modules/hubot-utility#readme",
+  "dependencies": {
+    "nodemailer": "^3.0.2"
+  }
+}
