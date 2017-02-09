@@ -9,12 +9,15 @@ _ = require 'lodash'
 scopes = {}
 timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
 
-# Remove any old comments from the memory
-tidy = ->
-	horizon = moment().subtract(timeout, 'minutes')
-	for scope, comments of scopes
-		for comment, timestamp of comments when timestamp.isBefore horizon
-			delete scopes[scope][comment]
+# Remove old comments up every 10 percent of the way through the timeout
+maybeTidy = _.throttle(
+	->
+		horizon = moment().subtract(timeout, 'minutes')
+		for scope, comments of scopes
+			for comment, timestamp of comments when timestamp.isBefore horizon
+				delete scopes[scope][comment]
+	timeout * 6000 # (minutes->milliseconds * 10%)
+)
 
 module.exports = (robot) ->
 	robot.responseMiddleware (context, next, done) ->
@@ -32,5 +35,5 @@ module.exports = (robot) ->
 		else
 			done()
 
-		# Tidy up every 10 percent of the way through the timeout
-		_.throttle tidy, timeout * 6000 # (60 * 1000 * 0.1)
+		# Trigger garbage collection
+		maybeTidy()
