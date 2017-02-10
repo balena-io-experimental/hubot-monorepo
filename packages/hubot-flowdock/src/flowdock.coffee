@@ -206,10 +206,10 @@ class Flowdock extends Adapter
 
   # Pass to the callback function everyone who has been pinged in a conversation
   fetchThreadPinged: (envelope, callback) ->
-    @fetchThreadMessages envelope, comments ->
+    @fetchThreadMessages envelope, (comments) ->
       # Create a set of everything that appears after an @
       people = new Set()
-      for comment in obj
+      for comment in comments
         for person in comment.content.match(/@(\w*)/gi) ? []
           people.add person
       # Put the set of people to the callback
@@ -217,13 +217,13 @@ class Flowdock extends Adapter
 
   # Pass to the callback function everyone who has contributed to a conversation
   fetchThreadCommenters: (envelope, callback) ->
-    @fetchThreadMessages envelope, comments ->
+    @fetchThreadMessages envelope, (comments) =>
       # Create a set of everyone who appears as an author
       people = new Set()
-      for comment in obj
+      for comment in comments
         people.add comment.user
       # Put the set of people to the callback
-      callback Array.from(people).map(value => '@' + @userFromId(value).name)
+      callback Array.from(people).map((value) => '@' + @userFromId(value).name)
 
   # Pass to the callback function every message in a thread
   fetchThreadMessages: (envelope, callback) ->
