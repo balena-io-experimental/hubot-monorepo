@@ -14,16 +14,16 @@ module.exports = (robot) ->
 		now = moment()
 		timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
 		horizon = moment(now).subtract(timeout, 'minutes')
-		comment = JSON.stringify(context.strings)
+		response = JSON.stringify(context.strings)
 		scopeId = context.response.message.metadata?.thread_id ? context.response.message.room
 		messageTimeByScope[scopeId] ?= {}
 		scopeConsidered = messageTimeByScope[scopeId]
 		# Tidy the old comments
 		for comment, timestamp of scopeConsidered when timestamp.isBefore(horizon)
 			delete scopeConsidered[comment]
-		# Allow the comment if it's not in our memory
-		if (not scopeConsidered[comment]?)
-			scopeConsidered[comment] = now
+		# Allow the response if it's not in our memory
+		if (not scopeConsidered[response]?)
+			scopeConsidered[response] = now
 			next()
 		else
 			done()
