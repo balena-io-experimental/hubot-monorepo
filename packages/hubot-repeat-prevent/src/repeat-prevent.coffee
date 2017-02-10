@@ -6,34 +6,24 @@
 moment = require 'moment'
 _ = require 'lodash'
 
-scopes = {}
-timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
-
-# Remove old comments up every 10 percent of the way through the timeout
-maybeTidy = _.throttle(
-	->
-		horizon = moment().subtract(timeout, 'minutes')
-		for scope, comments of scopes
-			for comment, timestamp of comments when timestamp.isBefore horizon
-				delete scopes[scope][comment]
-	timeout * 6000 # (minutes->milliseconds * 10%)
-)
+messageTimeByScope = {}
 
 module.exports = (robot) ->
 	robot.responseMiddleware (context, next, done) ->
 		# Extract and initialise the data we need
 		now = moment()
+		timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
 		horizon = moment(now).subtract(timeout, 'minutes')
 		comment = JSON.stringify(context.strings)
-		scope = context.response.message.metadata?.thread_id ? context.response.message.room
-		scopes[scope] ?= {}
-
-		# If the comment isn't in our memory or is old
-		if (not scopes[scope][comment]?) or scopes[scope][comment].isBefore(horizon)
-			scopes[scope][comment] = now
+		scopeId = context.response.message.metadata?.thread_id ? context.response.message.room
+		messageTimeByScope[scopeId] ?= {}
+		scopeConsidered = messageTimeByScope[scopeId]
+		# Tidy the old comments
+		for comment, timestamp of scopeConsidered when timestamp.isBefore(horizon)
+			delete scopeConsidered[comment]
+		# Allow the comment if it's not in our memory
+		if (not scopeConsidered[comment]?)
+			scopeConsidered[comment] = now
 			next()
 		else
 			done()
-
-		# Trigger garbage collection
-		maybeTidy()
