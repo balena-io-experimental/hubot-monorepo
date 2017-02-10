@@ -126,8 +126,8 @@ class Duplicator
 	# Output in thread the environment variables
 	viewEnvVars: (respond) ->
 		respond(JSON.stringify
-			to: @to
-			from: @from
+			to: @to.name
+			from: @from.name
 			map: @roomMapping
 		)
 
