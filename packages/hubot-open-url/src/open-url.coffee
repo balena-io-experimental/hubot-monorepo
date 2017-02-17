@@ -14,12 +14,7 @@ firebaseUrl = process.env.HUBOT_FIREBASE_URL
 firebaseAuth = process.env.HUBOT_FIREBASE_SECRET
 
 bookmarks = {}
-confirmations = [
-	'Done.'
-]
-holdings = [
-	'Doing'
-]
+Personality = require('./personality.coffee')
 
 module.exports = (robot) ->
 	robot.http("#{firebaseUrl}/data/bookmarks.json?auth=#{firebaseAuth}")
