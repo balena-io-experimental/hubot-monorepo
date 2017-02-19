@@ -204,39 +204,5 @@ class Flowdock extends Adapter
 
       @connect()
 
-  # Pass to the callback function everyone who has been pinged in a conversation
-  fetchThreadPinged: (envelope, callback) ->
-    @fetchThreadMessages envelope, (comments) ->
-      # Create a set of everything that appears after an @
-      people = new Set()
-      for comment in comments
-        for person in comment.content.match(/@(\w*)/gi) ? []
-          people.add person
-      # Put the set of people to the callback
-      callback Array.from(people)
-
-  # Pass to the callback function everyone who has contributed to a conversation
-  fetchThreadCommenters: (envelope, callback) ->
-    @fetchThreadMessages envelope, (comments) =>
-      # Create a set of everyone who appears as an author
-      people = new Set()
-      for comment in comments
-        people.add comment.user
-      # Put the set of people to the callback
-      callback Array.from(people).map((value) => '@' + @userFromId(value).name)
-
-  # Pass to the callback function every message in a thread
-  fetchThreadMessages: (envelope, callback) ->
-    # Fetch the flow parameterised_name from id
-    @bot.get '/flows/find', { id: envelope.message.room }, (err, obj, res) =>
-      endpoint = obj.url.split('/').splice(3)
-      # Fetch all the messages in the thread
-      endpoint.push 'threads'
-      endpoint.push envelope.message.metadata.thread_id
-      endpoint.push 'messages'
-      @bot.get '/' + endpoint.join('/'), {}, (err, obj, res) =>
-        callback obj
-
-
 exports.use = (robot) ->
   new Flowdock robot
