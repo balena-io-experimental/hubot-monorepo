@@ -22,5 +22,5 @@
   "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
   "dependencies": {
     "coffee-script": "^1.12.2"
-  },
+  }
 }
