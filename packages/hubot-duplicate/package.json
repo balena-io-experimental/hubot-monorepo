@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/resin-io-modules/hubot-duplicate.git"
+    "url": "https://github.com/resin-io-modules/hubot-monorepo.git"
   },
   "keywords": [
     "hubot",
@@ -18,14 +18,11 @@
   "author": "Andrew Lucas (andrewl@resin.io)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/resin-io-modules/hubot-duplicate/issues"
+    "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
   },
-  "homepage": "https://github.com/resin-io-modules/hubot-duplicate#readme",
+  "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
   "dependencies": {
     "coffee-script": "^1.12.2",
     "hubot-utility": "^0.1.0"
-  },
-  "devDependencies": {
-    "resin-lint": "^1.4.0"
   }
 }
