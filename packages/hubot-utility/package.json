@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/resin-io-modules/hubot-utility.git"
+    "url": "git+https://github.com/resin-io-modules/hubot-monorepo.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/resin-io-modules/hubot-utility/issues"
+    "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
   },
-  "homepage": "https://github.com/resin-io-modules/hubot-utility#readme",
+  "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
   "dependencies": {
     "nodemailer": "^3.0.2"
   }
