@@ -2,7 +2,7 @@
   "name": "hubot-utility",
   "version": "0.0.1",
   "description": "",
-  "main": "index.coffee",
+  "main": "main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/resin-io-modules/hubot-monorepo.git"
   },
-  "author": "",
+  "author": "Andrew Lucas (andrewl@resin.io)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
