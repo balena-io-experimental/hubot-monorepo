@@ -22,8 +22,5 @@
   "homepage": "https://github.com/resin-io-modules/hubot-open-url#readme",
   "dependencies": {
     "coffee-script": "^1.12.2"
-  },
-  "devDependencies": {
-    "resin-lint": "^1.4.0"
   }
 }

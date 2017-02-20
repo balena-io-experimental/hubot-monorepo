@@ -28,13 +28,5 @@
     "parent-require": "^1.0.0",
     "request": "^2.79.0"
   },
-  "devDependencies": {
-    "hubot": "^2.19.0",
-    "hubot-base-adapter": "0.0.1",
-    "hubot-flowdock": "^0.7.6",
-    "hubot-mock-adapter": "^1.0.0",
-    "hubot-slack": "^4.3.1",
-    "resin-lint": "^1.4.0"
-  },
   "homepage": "https://github.com/resin-io/hubot-front#readme"
 }
