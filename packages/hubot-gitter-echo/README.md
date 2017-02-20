@@ -2,7 +2,7 @@
 
 A hubot script that echos all output to a gitter room
 
-See [`src/gitter-echo.coffee`](src/gitter-echo.coffee) for full documentation.
+See [`src/main.coffee`](main.coffee) for full documentation.
 
 ## Installation
 
