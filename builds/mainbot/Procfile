@@ -1,0 +1,1 @@
+web: export HUBOT_NAME="${HUBOT_NAME:-Hubot}" && bin/hubot -a flowdock-resin -n "$HUBOT_NAME"
