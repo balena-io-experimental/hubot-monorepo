@@ -2,38 +2,27 @@
   "name": "hubot-ignore-own-output",
   "description": "A hubot script that prevents a hubot from acting on it's own output",
   "version": "0.1.4",
-  "author": "Andrew Lucas <andrewl@resin.io>",
-  "license": "Apache-2.0",
-  "keywords": "hubot, hubot-scripts",
+  "main": "main.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/resin-io/hubot-ignore-self.git"
+    "url": "git://github.com/hubot-scripts/hubot-monorepo.git"
   },
+  "keywords": [
+    "hubot",
+    "script"
+  ],
+  "author": "Andrew Lucas <andrewl@resin.io>",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/resin-io/hubot-ignore-self/issues"
+    "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
   },
-  "dependencies": {},
+  "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
+  "dependencies": {
+  },
   "peerDependencies": {
     "hubot": "2.x"
-  },
-  "devDependencies": {
-    "hubot-test-helper": "^1.3.0",
-    "chai": "^2.1.1",
-    "coffee-script": "1.6.3",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-mocha-test": "~0.12.7",
-    "grunt-release": "~0.11.0",
-    "hubot": "2.x",
-    "matchdep": "~0.3.0",
-    "mocha": "^2.1.0",
-    "resin-lint": "^1.4.0",
-    "sinon": "^1.13.0",
-    "sinon-chai": "^2.7.0"
-  },
-  "main": "index.coffee",
-  "scripts": {
-    "test": "grunt test"
   }
 }

@@ -2,7 +2,7 @@
 
 A hubot script that prevents a hubot from acting on it's own output
 
-See [`src/ignore-own-output.coffee`](src/ignore-own-output.coffee) for full documentation.
+See [`src/main.coffee`](main.coffee) for full documentation.
 
 ## Installation
 
