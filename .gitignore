@@ -1,0 +1,11 @@
+node_modules
+.DS_Store*
+*.swo
+*.swp
+.hubot_history
+.node-version
+.idea
+.project
+npm-debug.log
+configs
+packages/
