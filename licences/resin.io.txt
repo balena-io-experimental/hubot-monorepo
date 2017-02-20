@@ -1,0 +1,6 @@
+Portions of this code are (c) resin.io and are published under the following
+terms.
+
+This project developed from the hubot code published by Github.
+Contributions made by Andrew Lucas (sqweelygig) are the property of
+resin.io and are published under the Apache-2.0 license.
