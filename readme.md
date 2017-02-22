@@ -11,6 +11,11 @@ questions to ask. Some of these are below.
   * In particular note that I have added a scripts section
   * Heroku (Node) picks up on this, building and running the module from envvar
 
+## Heroku FAQ
+* simply git push your code
+  * this means that your code must work as a repo
+  * this introduces complications when you want to manage your setup code alongside your submodule code
+
 ## Lerna FAQ
 * What is it?
   * It's great, look here https://github.com/lerna/lerna
