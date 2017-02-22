@@ -1,6 +1,6 @@
 {
   "name": "hubot-repeat-prevent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A hubot script to prevent responses if they repeat a recent response",
   "main": "main.coffee",
   "scripts": {

@@ -1,7 +1,7 @@
 {
   "name": "hubot-ignore-own-output",
   "description": "A hubot script that prevents a hubot from acting on it's own output",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +20,7 @@
     "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
   },
   "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "hubot": "2.x"
   }

@@ -1,6 +1,6 @@
 {
   "name": "hubot-discourse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A discourse adapter for Hubot",
   "main": "main.coffee",
   "scripts": {
@@ -13,7 +13,7 @@
   "keywords": [
     "hubot",
     "adapter",
-	"discourse"
+    "discourse"
   ],
   "author": "sqweelygig (andrewl@resin.io)",
   "license": "Apache-2.0",

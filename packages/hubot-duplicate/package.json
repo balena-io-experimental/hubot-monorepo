@@ -1,6 +1,6 @@
 {
   "name": "hubot-duplicate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple hubot script that echoes comments into another service",
   "main": "main.coffee",
   "keywords": [
