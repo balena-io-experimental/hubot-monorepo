@@ -1,6 +1,6 @@
 {
   "name": "hubot-gitter-echo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A hubot script that echos all output to a gitter room",
   "main": "main.coffee",
   "scripts": {

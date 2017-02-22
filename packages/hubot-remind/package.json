@@ -1,7 +1,7 @@
 {
   "name": "hubot-remind",
   "description": "Remind to someone something...",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "main.coffee",
   "dependencies": {
     "cron": "^1.0.5",
