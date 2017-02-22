@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "hubot": "^2.19.0",
-    "hubot-duplicate": "^0.0.1",
+    "hubot-duplicate": "^0.1.0",
     "hubot-flowdock-resin": "^0.7.10"
   },
   "scripts": {
