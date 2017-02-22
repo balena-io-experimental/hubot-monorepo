@@ -6,15 +6,16 @@ it a sensible moment to consolidate using that.
 However, since this has to be deployed into a reasonably standard node environment there were lessons to learn and 
 questions to ask. Some of these are below.
 
-## Lerna <-> Heroku
-* package.json is just like any other package.json
-  * In particular note that I have added a scripts section
-  * Heroku (Node) picks up on this, building and running the module from envvar
+## How-to
+* Do a lerna init, clone your repos down, do a load of cleaning up and lerna import
+* Tweak the package.json file to refer to install and start the module you wish to run
+* Push it to heroku
+* Rejoice and have a beer
 
 ## Heroku FAQ
-* simply git push your code
-  * this means that your code must work as a repo
-  * this introduces complications when you want to manage your setup code alongside your submodule code
+* my current understanding is that your code must work as if a node module BUT
+* package.json is just like any other package.json
+  * In particular note that I have added a scripts section
 
 ## Lerna FAQ
 * What is it?
