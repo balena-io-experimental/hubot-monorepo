@@ -187,6 +187,7 @@ class Flowdock extends Adapter
 						data =
 							id: user.id
 							name: user.nick
+							email: user.email
 						savedUser = @userFromId user.id, data
 						if savedUser.name != data.name
 							@changeUserNick(savedUser.id, data.name)
