@@ -6,6 +6,12 @@ catch
 	prequire = require 'parent-require'
 	{ TextMessage } = prequire 'hubot'
 
+###*
+	GOTCHA ALERT! Because of the, IMO, slightly confusing way that front handles inboxes/channels
+	GOTCHA ALERT! There has had to be a slightly confusing amalgamation of terms.
+	GOTCHA ALERT! A message is posted to a channel, which front then aggregates, and an event is emitted from an inbox.
+	TODO: https://github.com/resin-io-modules/hubot-front/issues/12
+###
 class Front extends AbstractAPIAdapter
 	constructor: ->
 		try
@@ -67,6 +73,24 @@ class Front extends AbstractAPIAdapter
 			message.id
 			{ ids: { comment: message.id, thread: message.conversation?.id, flow: inbox.id } }
 		)
+
+	parseResponse: (response) -> thread: response.conversation_reference.split('@')[0]
+
+	buildRequest: (user, channel, text, conversation) ->
+		returnValue =
+			payload:
+				body: text
+			headers:
+				'Content-Type': 'application/json'
+				Accept: 'application/json'
+				Authorization: "Bearer #{user}"
+		if conversation?
+			# http://dev.frontapp.com/#send-reply
+			returnValue.url = "https://api2.frontapp.com/conversations/#{conversation}/messages"
+		else
+			# http://dev.frontapp.com/#send-new-message
+			returnValue.url = "https://api2.frontapp.com/channels/#{channel}/messages"
+		returnValue
 
 exports.use = (robot) ->
 	new Front robot
