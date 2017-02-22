@@ -9,7 +9,7 @@
     "resin-lint": "^1.4.0"
   },
   "scripts": {
-    "install": "npm install packages/hubot-as-$HUBOT_AS",
+    "install": "npm install --production packages/hubot-as-$HUBOT_AS",
     "start": "cd node_modules/hubot-as-$HUBOT_AS && npm start"
   }
 }
