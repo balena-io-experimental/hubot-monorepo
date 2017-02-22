@@ -1,0 +1,19 @@
+{
+  "name": "hubot-as-syncbot",
+  "version": "0.0.1",
+  "keywords": [
+    "hubot",
+    "sync",
+    "bot"
+  ],
+  "description": "A sync bot for two services.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hubot": "^2.19.0",
+    "hubot-duplicate": "^0.1.0",
+    "hubot-flowdock-resin": "github:resin-io-modules/hubot-flowdock#alpha"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/hubot -n \"$HUBOT_NAME\" -a \"$HUBOT_DUPLICATE_FROM\""
+  }
+}
