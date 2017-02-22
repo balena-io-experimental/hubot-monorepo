@@ -1,6 +1,6 @@
 {
   "name": "hubot-discourse",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A discourse adapter for Hubot",
   "main": "main.coffee",
   "scripts": {

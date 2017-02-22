@@ -1,7 +1,7 @@
 {
   "name": "hubot-ignore-own-output",
   "description": "A hubot script that prevents a hubot from acting on it's own output",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

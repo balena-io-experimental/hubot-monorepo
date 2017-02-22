@@ -1,6 +1,6 @@
 {
   "name": "hubot-as-syncbot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "hubot",
     "sync",
@@ -10,8 +10,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "hubot": "^2.19.0",
-    "hubot-duplicate": "^0.1.1",
-    "hubot-flowdock-resin": "^0.7.13"
+    "hubot-duplicate": "^0.1.2",
+    "hubot-flowdock-resin": "^0.7.14"
   },
   "scripts": {
     "start": "node_modules/.bin/hubot -n \"$HUBOT_NAME\" -a \"$HUBOT_DUPLICATE_FROM\""
