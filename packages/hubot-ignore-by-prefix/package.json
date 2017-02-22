@@ -8,23 +8,9 @@
     "hubot",
     "hubot-scripts"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/resin-io/hubot-ignore.git"
-  },
-  "bugs": {
-    "url": "https://github.com/resin-io/hubot-ignore/issues"
-  },
   "dependencies": {},
   "peerDependencies": {
     "hubot": "2.x"
   },
-  "main": "index.coffee",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "homepage": "https://github.com/resin-io/hubot-ignore#readme",
-  "directories": {
-    "test": "test"
-  }
+  "main": "main.coffee"
 }

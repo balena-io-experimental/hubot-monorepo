@@ -2,14 +2,7 @@
   "name": "hubot-duplicate",
   "version": "0.1.0",
   "description": "A simple hubot script that echoes comments into another service",
-  "main": "loader.coffee",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/resin-io-modules/hubot-duplicate.git"
-  },
+  "main": "main.coffee",
   "keywords": [
     "hubot",
     "script",
@@ -17,15 +10,8 @@
   ],
   "author": "Andrew Lucas (andrewl@resin.io)",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/resin-io-modules/hubot-duplicate/issues"
-  },
-  "homepage": "https://github.com/resin-io-modules/hubot-duplicate#readme",
   "dependencies": {
     "coffee-script": "^1.12.2",
     "hubot-utility": "^0.1.0"
-  },
-  "devDependencies": {
-    "resin-lint": "^1.4.0"
   }
 }
