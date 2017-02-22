@@ -11,7 +11,7 @@
   "dependencies": {
     "hubot": "^2.19.0",
     "hubot-duplicate": "^0.1.0",
-    "hubot-flowdock-resin": "github:resin-io-modules/hubot-flowdock#alpha"
+    "hubot-flowdock-resin": "^0.7.10"
   },
   "scripts": {
     "start": "node_modules/.bin/hubot -n \"$HUBOT_NAME\" -a \"$HUBOT_DUPLICATE_FROM\""
