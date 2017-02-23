@@ -7,7 +7,7 @@ catch
 	{ TextMessage } = prequire 'hubot'
 
 ###*
-	GOTCHA ALERT! Because of the, IMO, slightly confusing way that front handles inboxes/channels
+	GOTCHA ALERT! Because of the slightly confusing way that front handles inboxes/channels
 	GOTCHA ALERT! There has had to be a slightly confusing amalgamation of terms.
 	GOTCHA ALERT! A message is posted to a channel, which front then aggregates, and an event is emitted from an inbox.
 	TODO: https://github.com/resin-io-modules/hubot-front/issues/12
