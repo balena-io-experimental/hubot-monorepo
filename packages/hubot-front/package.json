@@ -1,6 +1,6 @@
 {
   "name": "hubot-front",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Front adapter for Hubot",
   "main": "main.coffee",
   "keywords": [
@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "coffee-script": "^1.12.2",
-    "hubot-utility": "0.0.4",
+    "hubot-utility": "^0.0.5",
     "moment": "^2.17.1",
     "parent-require": "^1.0.0",
     "request": "^2.79.0"
