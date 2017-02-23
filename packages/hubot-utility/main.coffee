@@ -127,7 +127,7 @@ class AbstractAPIWriter extends AbstractAPIAdapter
 					catch error
 						reject(error)
 				else
-					reject(error ? new Error("StatusCode: #{response.statusCode}, Body: #{body}"))
+					reject(error ? new Error("StatusCode: #{headers.statusCode}, Body: #{body}"))
 			)
 
 module.exports =

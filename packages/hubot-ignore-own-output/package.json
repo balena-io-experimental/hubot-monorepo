@@ -20,8 +20,5 @@
     "url": "https://github.com/resin-io-modules/hubot-monorepo/issues"
   },
   "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
-  "dependencies": {},
-  "peerDependencies": {
-    "hubot": "2.x"
-  }
+  "dependencies": {}
 }

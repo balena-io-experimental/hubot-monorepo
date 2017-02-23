@@ -9,8 +9,5 @@
     "hubot-scripts"
   ],
   "dependencies": {},
-  "peerDependencies": {
-    "hubot": "2.x"
-  },
   "main": "main.coffee"
 }

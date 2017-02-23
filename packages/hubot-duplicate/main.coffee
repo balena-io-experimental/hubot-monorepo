@@ -135,7 +135,7 @@ class Duplicator
 	# Output in thread some explanatory notes
 	viewHelp: (respond) ->
 		respond """
-			# Chat duplicator
+			# Chat duplicator x
 			This script monitors your messages and duplicates then to paired rooms in a different service using your identity.
 			## A couple of details
 			* This bot needs an API key for the target service for each identity it will post as.

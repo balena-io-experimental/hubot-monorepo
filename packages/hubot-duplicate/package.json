@@ -12,6 +12,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "coffee-script": "^1.12.2",
-    "hubot-utility": "^0.1.0"
+    "hubot-utility": "^0.0.5"
   }
 }
