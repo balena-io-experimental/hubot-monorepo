@@ -1,5 +1,5 @@
 moment = require 'moment'
-AbstractAPIAdapter = require 'hubot-abstract-api-adapter'
+AbstractAPIWriter = require('hubot-utility').AbstractAPIWriter
 try
 	{ TextMessage } = require 'hubot'
 catch
@@ -12,7 +12,7 @@ catch
 	GOTCHA ALERT! A message is posted to a channel, which front then aggregates, and an event is emitted from an inbox.
 	TODO: https://github.com/resin-io-modules/hubot-front/issues/12
 ###
-class Front extends AbstractAPIAdapter
+class Front extends AbstractAPIWriter
 	constructor: ->
 		try
 			super
@@ -24,25 +24,29 @@ class Front extends AbstractAPIAdapter
 
 	extractResults: (obj) -> obj._results
 
-	poll: =>
-		checkHistoryUntil = @robot.brain.get 'AdapterFrontLastKnown'
-		if not checkHistoryUntil?
-			firstCheckWindow = parseInt(process.env.HUBOT_FRONT_SYNC_HISTORY ? '24')
-			checkHistoryUntil = moment().subtract(firstCheckWindow, 'h').unix()
-		@getUntil(
-			@getOptions process.env.HUBOT_FRONT_API_URL + '/events'
-			@processMessage
-			(obj) -> obj.emitted_at > checkHistoryUntil
-			(err, res) => if not err then @robot.brain.set('AdapterFrontLastKnown', res[0].emitted_at)
-		)
+	poll: ->
+		new Promise (resolve, reject) ->
+			checkHistoryUntil = @robot.brain.get('AdapterFrontLastKnown')
+			if not checkHistoryUntil?
+				firstCheckWindow = parseInt(process.env.HUBOT_FRONT_SYNC_HISTORY ? '24')
+				checkHistoryUntil = moment().subtract(firstCheckWindow, 'h').unix()
+			@getUntil(
+				@getOptions process.env.HUBOT_FRONT_API_URL + '/events'
+				@processMessage
+				@extractResults
+				@extractNext
+				(obj) -> obj.emitted_at > checkHistoryUntil
+			)
+			.then (result) =>
+				@robot.brain.set('AdapterFrontLastKnown', result[0].emitted_at)
+				resolve(result)
+			.catch(reject)
 
 	getOptions: (url) ->
 		url: url
 		headers:
 			Accept: 'application/json'
 			Authorization: 'Bearer ' + process.env.HUBOT_FRONT_API_TOKEN
-		qs:
-			before: Date.now()
 
 	processMessage: (message) =>
 		if message.type in [
@@ -52,6 +56,8 @@ class Front extends AbstractAPIAdapter
 			@getUntil(
 				@getOptions message.conversation._links.related.inboxes
 				@tellHubot message
+				@extractResults
+				@extractNext
 			)
 
 	tellHubot: (message) -> (inbox) =>
@@ -78,7 +84,7 @@ class Front extends AbstractAPIAdapter
 
 	buildRequest: (user, channel, text, conversation) ->
 		returnValue =
-			payload:
+			form:
 				body: text
 			headers:
 				'Content-Type': 'application/json'
@@ -93,4 +99,4 @@ class Front extends AbstractAPIAdapter
 		returnValue
 
 exports.use = (robot) ->
-	new Front robot
+	new Front(robot)
