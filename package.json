@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "hubot": "^2.19.0",
     "lerna": "2.0.0-beta.37",
     "resin-lint": "^1.4.0"
   },

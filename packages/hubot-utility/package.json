@@ -18,6 +18,7 @@
   "homepage": "https://github.com/resin-io-modules/hubot-monorepo#readme",
   "dependencies": {
     "nodemailer": "^3.0.2",
+    "parent-require": "^1.0.0",
     "request": "^2.79.0"
   }
 }
