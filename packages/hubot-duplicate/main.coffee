@@ -139,13 +139,16 @@ class Duplicator
 	# Output in thread some explanatory notes
 	viewHelp: (respond) ->
 		respond """
-			# Chat duplicator abc
+			Chat duplicator
+			===============
 			This script monitors your messages and duplicates then to paired rooms in a different service using your identity.
-			## A couple of details
+			A couple of details
+			-------------------
 			* This bot needs an API key for the target service for each identity it will post as.
 			* This bot can be configured for multiple users (for example the public) to share one API key.
 			* I'd strongly suggest configuring your API key via 1-1.
-			## A few promises
+			A few promises
+			--------------
 			* Your API key can only ever be compared to a hash, even by your own account.
 			* Your API key will, by default, be stored in volatile memory to lock it to codebase/configuration.
 			* The codebase and environment is scrutinisable.
@@ -156,10 +159,12 @@ class Duplicator
 			* All read operations are done via the reveal and check keywords.
 				* Reveal shall give full details and never be used for keys.
 				* Check shall compare the stored value to a provided hash.
-			## Caveats
+			Caveats
+			-------
 			* Until https://github.com/resin-io/hubot-as-webot/issues/15 is resolved the PM history is a vulnerability.
 			* If your API key is set to persist then the vulnerabilities also include the redis brain and code changes.
-			## Commands
+			Commands
+			--------
 			* #{@robot.name} set my key [string]- store the key value
 			* #{@robot.name} check my key [string] - output whether the hash matches the hash of your key
 			* #{@robot.name} set my pattern [string]- configure a pattern which the username must match.
