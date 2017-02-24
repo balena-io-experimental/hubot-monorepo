@@ -10,6 +10,7 @@ module.exports =
 		context.reply.bind(context)
 
 	notify: (subject, info, respond = ->) ->
+		console.log(info)
 		hubotEmail = encodeURIComponent(process.env.HUBOT_GMAIL_EMAIL)
 		hubotPass = encodeURIComponent(process.env.HUBOT_GMAIL_PASSWORD)
 		transporter = mailer.createTransport("smtps://#{hubotEmail}:#{hubotPass}@smtp.gmail.com")

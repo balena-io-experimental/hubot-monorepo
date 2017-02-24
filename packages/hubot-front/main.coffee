@@ -86,6 +86,7 @@ class Front extends AbstractAPIWriter
 		returnValue =
 			form:
 				body: text
+				sender: { handle: 'testbot' }
 			headers:
 				'Content-Type': 'application/json'
 				Accept: 'application/json'
@@ -95,7 +96,7 @@ class Front extends AbstractAPIWriter
 			returnValue.url = "https://api2.frontapp.com/conversations/#{conversation}/messages"
 		else
 			# http://dev.frontapp.com/#send-new-message
-			returnValue.url = "https://api2.frontapp.com/channels/#{channel}/messages"
+			returnValue.url = "https://api2.frontapp.com/channels/#{channel}/incoming_messages"
 		returnValue
 
 exports.use = (robot) ->

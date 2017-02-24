@@ -37,9 +37,10 @@ class AbstractAPIWriter extends AbstractAPIAdapter
 	postUsing: (text, ids) ->
 		new Promise (resolve, reject) =>
 			details = @buildRequest(ids.user, ids.flow, text, ids.thread)
-			request.post(details, (error, headers, body) ->
-				if not error and headers.statusCode is 200
+			request.post(details, (error, headers, body) =>
+				if not error and headers.statusCode >= 200 and headers.statusCode < 300
 					try
+						console.log(body)
 						resolve(@parseResponse(JSON.parse(body)))
 					catch error
 						reject(error)
