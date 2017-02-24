@@ -20,12 +20,14 @@
 #   Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
 
 utils = require 'hubot-utility'
+crypto = require 'crypto'
+adapter = require('hubot-' + process.env.HUBOT_DUPLICATE_TO)
 
 class Duplicator
 	constructor: (robot) ->
 		@to =
 			name: process.env.HUBOT_DUPLICATE_TO
-			adapter: require('hubot-' + process.env.HUBOT_DUPLICATE_TO).use(robot)
+			adapter: adapter.use(robot)
 		@from = { name: process.env.HUBOT_DUPLICATE_FROM }
 		@apiKeys = JSON.parse(robot.brain.get('ScriptDuplicateAPIKeys')) ? {}
 		@persists = new Set(Object.keys @apiKeys)
@@ -177,7 +179,7 @@ class Duplicator
 
 	# Utility function to hash a string
 	hash: (string) ->
-		require('crypto').createHash('sha1').update(string).digest('hex') if string?
+		crypto.createHash('sha256').update(string).digest('hex') if string?
 
 	# Utility function to return a user's object, creating if required
 	getUserConfig: (username) ->

@@ -12,6 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "coffee-script": "^1.12.2",
+    "crypto": "0.0.3",
     "hubot-flowdock-resin": "^0.7.16",
     "hubot-front": "0.0.6",
     "hubot-utility": "^0.0.5"
