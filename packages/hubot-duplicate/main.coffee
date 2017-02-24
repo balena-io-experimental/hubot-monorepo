@@ -81,6 +81,8 @@ class Duplicator
 				@to.adapter.postUsing(text, to_ids)
 				.then((posted_ids) => @knownThreads[from_ids.thread] = posted_ids.thread)
 				.catch((error) -> utils.notify(error.message, error))
+			else
+				robot.logger.error('Target has no postUsing function.')
 
 	# Store an api key in volatile memory
 	setAPIKey: (username, value, respond) ->
