@@ -45,17 +45,17 @@ class Duplicator
 				comment: context.message.id
 				thread: context.message.metadata.thread_id
 		# My key
-		robot.respond /set my key (\w+)/i, (context) => @setAPIKey context.message.user.name, context.match[1], @createResponder(context)
-		robot.respond /check my key (\w+)/i, (context) => @checkAPIKey context.message.user.name, context.match[1], @createResponder(context)
+		robot.respond /set my key (\S+)/i, (context) => @setAPIKey context.message.user.name, context.match[1], @createResponder(context)
+		robot.respond /check my key (\S+)/i, (context) => @checkAPIKey context.message.user.name, context.match[1], @createResponder(context)
 		# My regex
-		robot.respond /set my pattern (\w+)/i, (context) => @setPattern context.message.user.name, context.match[1], @createResponder(context)
+		robot.respond /set my pattern (\S+)/i, (context) => @setPattern context.message.user.name, context.match[1], @createResponder(context)
 		robot.respond /reveal my pattern/i, (context) => @viewPattern context.message.user.name, @createResponder(context)
 		# My details
 		robot.respond /save my config(uration)?/i, (context) => @persistUser context.message.user.name, @createResponder(context)
 		robot.respond /forget my config(uration)?/i, (context) => @forgetUser context.message.user.name, @createResponder(context)
 		# Other's details
 		robot.respond /reveal who.*se? config(ured)?/i, (context) => @listUsers @createResponder(context)
-		robot.respond /forget @(\w+)'?s? config(uration)?/i, (context) => @forgetUser context.match[1], @createResponder(context)
+		robot.respond /forget @(\S+)'?s? config(uration)?/i, (context) => @forgetUser context.match[1], @createResponder(context)
 		# Misc
 		robot.respond /duplicator( about| help)?/i, (context) => @viewHelp @createResponder(context)
 		robot.respond /reveal your config(uration)?/i, (context) => @viewEnvVars @createResponder(context)
@@ -80,9 +80,9 @@ class Duplicator
 			if @to.adapter.postUsing?
 				@to.adapter.postUsing(text, to_ids)
 				.then((posted_ids) => @knownThreads[from_ids.thread] = posted_ids.thread)
-				.catch((error) -> utils.notify(error.message, error))
+				.catch((error) -> utils.notify('error from duplicator', error))
 			else
-				robot.logger.error('Target has no postUsing function.')
+				utils.notify('Target has no postUsing function.')
 
 	# Store an api key in volatile memory
 	setAPIKey: (username, value, respond) ->

@@ -1,4 +1,5 @@
 request = require 'request'
+mailer = require 'nodemailer'
 try
 	{ Adapter } = require 'hubot'
 catch
@@ -137,18 +138,23 @@ module.exports =
 	createReplier: (context) ->
 		context.reply.bind(context)
 
-	notify: (subject, info, respond) ->
-		mailer = require 'nodemailer'
+	notify: (subject, info, respond = ->) ->
 		hubotEmail = encodeURIComponent(process.env.HUBOT_GMAIL_EMAIL)
 		hubotPass = encodeURIComponent(process.env.HUBOT_GMAIL_PASSWORD)
 		transporter = mailer.createTransport("smtps://#{hubotEmail}:#{hubotPass}@smtp.gmail.com")
 		mailData =
 			from: '"Hubot" <hubot@resin.io>'
-			to: 'process@resin.io'
+			to: 'andrewl@resin.io'
 			subject: subject
-			text: 'Debug output follows: ' + JSON.stringify(info)
+			text: """
+				Message: #{info.message}
+				Full error object: #{info}
+			"""
 		transporter.sendMail mailData, (err) ->
-			if not err then respond?("Email sent to #{mailData.to}")
+			if err
+				console.log err
+			else
+				respond("Email sent to #{mailData.to}")
 
 	AbstractAPIAdapter: AbstractAPIAdapter
 
